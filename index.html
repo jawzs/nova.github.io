@@ -479,22 +479,37 @@ These collectibles are scattered around the map and give a score boost.
 
  ]
 }
-</tw-passagedata><tw-passagedata pid="13" name="Ready To Play" tags="" position="975,1250" size="100,100">&lt;span style=&quot;font-size: 1.6em;color:#2095bd; text-shadow: 0 0 2px #b2aec3;&quot;&gt;&#39;&#39;Off to the Spaceship&#39;&#39;&lt;/span&gt;
-{
- (live: 1s)[
-    (stop:)
-   (set: $typewriterText to &quot;
-  You&#39;re ready to go! Compete against your opponents and aim for the highest score!&quot;)
-(display: &quot;Typewriter&quot;)
- ]
-}
+<tw-passagedata pid="13" name="Ready To Play" tags="" position="975,1250" size="100,100">
+    &lt;span style=&quot;font-size: 1.6em;color:#2095bd; text-shadow: 0 0 2px #b2aec3;&quot;&gt;&#39;&#39;Off to the Spaceship&#39;&#39;&lt;/span&gt;
+    {
+    (live: 1s)[
+        (stop:)
+        (set: $typewriterText to &quot;
+        You&#39;re ready to go! Compete against your opponents and aim for the highest score!&quot;)
+        (display: &quot;Typewriter&quot;)
+    ]
+    }
+    {
+    (live: 5s)[
+        (stop:)
+        [[End Tutorial|end-button]]
+    ]
+    }
 
-{
- (live: 5s)[
-    (stop:)
-  	[[End Tutorial|end-button]]
- ]
-}
+    <!-- Add a Close Tutorial Button -->
+    {
+    (live: 5.5s)[
+        (stop:)
+        (append: ?story)[
+            &lt;button id=&quot;close-tutorial-btn&quot;&gt;Close Tutorial&lt;/button&gt;
+        ]
+        &lt;script&gt;
+            document.getElementById(&quot;close-tutorial-btn&quot;).addEventListener(&quot;click&quot;, function() {
+                window.close();  // This closes the current tab or window
+            });
+        &lt;/script&gt;
+    ]
+    }
 </tw-passagedata><tw-passagedata pid="14" name="end-button" tags="" position="975,1400" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="Space" tags="" position="1500,1250" size="100,100">&lt;span style=&quot;font-size: 1.6em;color:#2095bd; text-shadow: 0 0 2px #b2aec3;&quot;&gt;&#39;&#39;Space&#39;&#39;&lt;/span&gt;
 {
  (live: 1s)[
